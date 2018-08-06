@@ -6,8 +6,6 @@ COPY src/ ./
 
 # Copy csproj and restore as distinct layers
 RUN dotnet restore BuildTrigger.Web/BuildTrigger.Web.csproj
-RUN ls -la
-
 RUN dotnet publish -c Release -o out ./BuildTrigger.Web/BuildTrigger.Web.csproj
 
 # Build runtime image
