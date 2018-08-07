@@ -7,6 +7,8 @@ This project has been made to allow multiple users to trigger a build defined in
 
 Project search for avaliable build definiotions which have been setup in the VSTS project. Avaliable permission are visible for everyone. To trigger a bulild just click on it's name.
 
+_Notice:_ All build will be trigger in context on PAT token issuer.
+
 ![Dashboard](https://raw.githubusercontent.com/rafalpienkowski/resources/master/build-trigger/dashboard.png)
 
 ## Setup
@@ -54,6 +56,14 @@ Parameters:
 ___
 
 There is also avaliable docker image on [DockerHub](https://hub.docker.com/r/rafalpienkowski/build-trigger/) if you don't like to run the project on local machine.
+
+Example usage which start a container and maps port 80 from container to port 5000 on the host machine:
+
+```
+ docker run -p 5000:80 -e "VstsBuildOptions:Instance={instance}" -e "VstsBuildOptions:Project={project}" -e "VstsBuildOptions:TokenBase64={tokenBase64}" rafalpienkowski/build-trigger
+```
+
+_Notice:_ Please remember to setup **project, instance and token**. In other case there will be no build definition downloaded from VSTS.
 
 ## Other
 ___
