@@ -35,7 +35,7 @@ namespace BuildTrigger.Web.Controllers
             }
             catch(Exception ex)
             {
-                _logger.LogError(ex, "Can't get build definitions");
+                _logger.LogCritical(ex, "Can't get build definitions");
             }
             return View(buildModels);
         }
@@ -51,7 +51,7 @@ namespace BuildTrigger.Web.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Can't trigger a build");
+                _logger.LogCritical(ex, "Can't trigger a build");
                 return Json("Something went wrong");
             }
         }
